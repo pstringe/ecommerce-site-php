@@ -253,4 +253,49 @@
 		}
 		echo $total;
 	}
+
+	function getCartProducts()
+	{
+		global $con;
+		
+		$ip = getIp();
+		$price_q = "select * from cart where ip_add='$ip'";
+		$price_r = mysqli_query($con, $price_q);
+		$total = 0;
+
+		while ($p_price = mysqli_fetch_array($price_r)){
+			$prod_id = $p_price['p_id'];
+			$prod_price_q = "select * from products where prod_id='$prod_id'";
+			$prod_price_r = mysqli_query($con, $prod_price_q);
+			while ($r = mysqli_fetch_array($prod_price_r)){
+				$title = $r['prod_title'];
+				$price = $r['prod_price'];
+				$img = $r['img'];
+				$total += $r['prod_price'];
+				
+				echo ("
+						<div class='cart-item'>
+							<input type='checkbox' name='remove[]' value='$prod_id'>Product Title: $title <img src='admin_area/product_images/$img'>Product Price: $price <input type='text' name='qty'/>
+						</div>
+					");
+			}
+		}
+		
+		echo "Total: " . $total;
+	}
+
+	function updateCart()
+	{
+		global $con;
+
+		$ip = getIp();
+		if (isset($_POST['update_cart'])){
+			foreach($_POST['remove'] as $remove_id){
+				$delete_product = "delete from cart where p_id='$remove_id' AND ip_add='$ip'";
+				$run_delete = mysqli_query($con, $delete_product);
+				if($run_delete)
+					echo "<script> winow.open('cart.php', '_self')</script>"; 
+			}
+		}
+	}
 ?>

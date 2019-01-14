@@ -17,11 +17,11 @@
 			</div>
 			<div class="navbar">
 				<div class="menu">
-					<div class="menu_link"><a href="#">Home</a></div>
+					<div class="menu_link"><a href="index.php">Home</a></div>
 					<!--<div class="menu_link"><a href="#">Products</a></div>-->
-					<div class="menu_link"><a href="#">My Account</a></div>
+					<div class="menu_link"><a href="">My Account</a></div>
 					<div class="menu_link"><a href="#">Sign-Up</a></div>
-					<div class="menu_link"><a href="#">Cart</a></div>
+					<div class="menu_link"><a href="cart.php">Cart</a></div>
 					<div class="menu_link"><a href="#">Contact</a></div>
 				</div>
 				<!--
@@ -56,7 +56,7 @@
 					<div>Welcome Guest</div>
 					<div>Total Items: <?php getTotalCartItems(); ?></div>
 					<div>Total Price: <?php getTotalCartPrice(); ?></div>
-					<div><a href="#">Go To Cart</a></div>
+					<div><a href="cart.php">Go To Cart</a></div>
 				</div>
 
 				<?php getIP(); ?>
