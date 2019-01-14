@@ -9,7 +9,7 @@
 		<title>
 			Test Shop
 		</title>
-		<link rel="stylesheet" href="styles/style.css" media="all"/>
+		<link rel="stylesheet" type="text/css" href="styles/style.css" media="all"/>
 	</head>
 	<body>
 		<div class="main">
