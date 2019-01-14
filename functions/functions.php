@@ -13,7 +13,7 @@
 			$id = $row['cat_id'];
 			$title =$row['cat_title'];
 
-			echo "<div class='catergory_link'><a href='index.php?cat=$id'>$title</a></div>";
+			echo "<div class='category_link'><a href='index.php?cat=$id'>$title</a></div>";
 		}
 	}
 
