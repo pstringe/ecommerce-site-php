@@ -128,31 +128,31 @@
 	function getProductsByBrand()
 	{
 		global $con;
-		if (!isset($_GET['cat'])){
-			if (!isset($_GET['brand'])) {
-				$get_products = "select * from products order by RAND() LIMIT 0, 6";
-				$run_products = mysqli_query($con, $get_products);
+		if (isset($_GET['brand'])) {
+			$brand_id = $_GET['brand'];
+			$get_products = "select * from products where prod_brand='$brand_id'";
+			$run_products = mysqli_query($con, $get_products);
 
-				while($row = mysqli_fetch_array($run_products)) {
-					$prod_id = $row['prod_id'];
-					$prod_cat = $row['prod_cat'];
-					$prod_brand = $row['prod_brand'];
-					$prod_price = $row['prod_price'];
-					$prod_image = $row['prod_img'];
+			while($row = mysqli_fetch_array($run_products)) {
+				$prod_id = $row['prod_id'];
+				$prod_cat = $row['prod_cat'];
+				$prod_brand = $row['prod_brand'];
+				$prod_price = $row['prod_price'];
+				$prod_image = $row['prod_img'];
 
-				echo "
-					<div class='single_product'>
-						<h3>$prod_title</h3>
-						<img src='admin_area/product_images/$prod_image'>	
-						<h2>$prod_price</h2>
-						<a href='details.php?pro_id=$prod_id' style='float:left;'>Details</a>
-						<a href='index.php' pro_id='$prod_id'><button>Add to Cart</button></a>
-					</div>
-					";
-				}
+			echo "
+				<div class='single_product'>
+					<h3>$prod_title</h3>
+					<img src='admin_area/product_images/$prod_image'>	
+					<h2>$prod_price</h2>
+					<a href='details.php?pro_id=$prod_id' style='float:left;'>Details</a>
+					<a href='index.php' pro_id='$prod_id'><button>Add to Cart</button></a>
+				</div>
+				";
 			}
 		}
 	}
+	
 	//Retrieve product details for details page
 	function getDetails()
 	{

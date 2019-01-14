@@ -56,6 +56,7 @@
 				<div id="product container">
 					<?php getProducts(); ?>
 					<?php getProductsByCategory(); ?>
+					<?php getProductsByBrand(); ?>
 				</div>
 			</div>
 			<div class="footer">
