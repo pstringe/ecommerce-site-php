@@ -103,7 +103,11 @@
 			$cat_id = $_GET['cat'];
 			$get_products = "select * from products where prod_cat='$cat_id'";
 			$run_products = mysqli_query($con, $get_products);
-
+			$count = mysqli_num_rows($run_products);
+			
+			if ($count == 0)
+				echo "<h2>No Products in this category</h2>";
+			
 			while($row = mysqli_fetch_array($run_products)) {
 				$prod_id = $row['prod_id'];
 				$prod_cat = $row['prod_cat'];
@@ -132,7 +136,11 @@
 			$brand_id = $_GET['brand'];
 			$get_products = "select * from products where prod_brand='$brand_id'";
 			$run_products = mysqli_query($con, $get_products);
+			$count = mysqli_num_rows($run_products);
 
+			if ($count == 0)
+				echo "<h2>No Products for this brand</h2>";
+	
 			while($row = mysqli_fetch_array($run_products)) {
 				$prod_id = $row['prod_id'];
 				$prod_cat = $row['prod_cat'];
@@ -140,7 +148,7 @@
 				$prod_price = $row['prod_price'];
 				$prod_image = $row['prod_img'];
 
-			echo "
+				echo "
 				<div class='single_product'>
 					<h3>$prod_title</h3>
 					<img src='admin_area/product_images/$prod_image'>	
