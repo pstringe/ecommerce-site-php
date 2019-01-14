@@ -47,10 +47,15 @@
 				</div>
 			</div>
 			<div class="main content">
+				<div id="shopping_cart">
+					<div>Welcome Guest</div>
+					<div>Total Items:</div>
+					<div>Total Price:</div>
+					<div><a href="#">Go To Cart</a></div>
+				</div>
 				<div id="product container">
-					<?php
-						getProducts();
-					?>	
+					<?php getProducts(); ?>
+					<?php getProductsByCategory(); ?>
 				</div>
 			</div>
 			<div class="footer">
