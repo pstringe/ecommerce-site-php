@@ -87,7 +87,7 @@
 						<img src='admin_area/product_images/$prod_image'>	
 						<h2>$prod_price</h2>
 						<a href='details.php?pro_id=$prod_id' style='float:left;'>Details</a>
-						<a href='index.php' pro_id='$prod_id'><button>Add to Cart</button></a>
+						<a href='index.php?add_cart=$prod_id'><button>Add to Cart</button></a>
 					</div>
 					";
 				}
@@ -121,7 +121,7 @@
 					<img src='admin_area/product_images/$prod_image'>	
 					<h2>$prod_price</h2>
 					<a href='details.php?pro_id=$prod_id' style='float:left;'>Details</a>
-					<a href='index.php' pro_id='$prod_id'><button>Add to Cart</button></a>
+					<a href='index.php?add_cart=$prod_id'><button>Add to Cart</button></a>
 				</div>
 				";
 			}
@@ -154,7 +154,7 @@
 					<img src='admin_area/product_images/$prod_image'>	
 					<h2>$prod_price</h2>
 					<a href='details.php?pro_id=$prod_id' style='float:left;'>Details</a>
-					<a href='index.php' pro_id='$prod_id'><button>Add to Cart</button></a>
+					<a href='index.php?add_cart=$prod_id'><button>Add to Cart</button></a>
 				</div>
 				";
 			}
@@ -184,10 +184,40 @@
 				<h2>$prod_price</h2>
 				<p>$prod_desc</p>
 				<a href='index.php'>Go Back</a>
-				<a href='index.php'><button>Add to Cart</button></a>
+				<a href='index.php?add_cart='$product_id'><button>Add to Cart</button></a>
 			</div>
 		";
 		}
 	}
 
+	function getIp() {
+		$ip = $_SERVER['REMOTE_ADDR'];
+		if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+			$ip = $_SERVER['HTTP_CLIENT_IP'];
+		} 
+		else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		}
+
+		return $ip;
+	}
+
+	function cart()
+	{
+		if (isset($_GET['add_cart']))
+		{
+			global $con;
+
+			$id = $_GET['add_cart'];
+			$ip = getIP();
+			$check = "select * from cart where ip_add='$ip' AND p_id='$id'";
+			$run = mysqli_query($con, $check);
+		
+			echo var_dump($run);
+			if (mysqli_num_rows($run) == 0){
+				$insert = "insert into cart (p_id, ip_add) values ('$id', '$ip')";
+				$run = mysqli_query($con, $insert);
+			}
+		}
+	}
 ?>
