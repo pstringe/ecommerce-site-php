@@ -39,8 +39,14 @@ a:active {
    text-align: center;
 }
 .logo   {
+   grid-column-row-start: 1;
+   grid-column-row-stop: 2;
    grid-column: col 1;
    grid-row: row 1;
+}
+.logo img {
+	width: 220px;
+	height: 120px;
 }
 .search_form    {
    grid-column: col 2;
@@ -129,11 +135,6 @@ a:active {
    margin: 0;
 }
 
-
-img     {
-   margin-left: auto;
-   margin-right: auto;
-}
 .space  {
    grid-row: row 1;
    grid-column: col 1/ span 5;
