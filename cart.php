@@ -9,7 +9,7 @@
 		<title>
 			Test Shop
 		</title>
-		<link rel="stylesheet" type="text/css" href="styles/style.css" media="all"/>
+		<link rel="stylesheet" href="styles/style.css" media="all"/>
 	</head>
 	<body>
 		<div class="main">
@@ -19,7 +19,7 @@
 				<div class="menu">
 					<div class="menu_link"><a href="index.php">Home</a></div>
 					<!--<div class="menu_link"><a href="#">Products</a></div>-->
-					<div class="menu_link"><a href="">My Account</a></div>
+					<div class="menu_link"><a href="#">My Account</a></div>
 					<div class="menu_link"><a href="#">Sign-Up</a></div>
 					<div class="menu_link"><a href="cart.php">Cart</a></div>
 					<div class="menu_link"><a href="#">Contact</a></div>
@@ -62,9 +62,23 @@
 				<?php getIP(); ?>
 
 				<div id="product container">
-					<?php getProducts(); ?>
-					<?php getProductsByCategory(); ?>
-					<?php getProductsByBrand(); ?>
+					<form action="" method="post" enctype="multipart/form-data">
+						<div id="cart-heading">
+							<h2>Update Cart or Checkout</h2>
+						</div>
+						<div id="main-cart-area">
+						<?php
+							getCartProducts();
+						?>	
+						</div>
+						<input type="submit" name="update_cart" value="Update Cart" />
+						<input type="submit" name="continue" value="Continue Shopping" />
+						<button><a href="checkout.php">Checkout</a></button>
+						
+					</form>	
+					<?php
+						updateCart();
+					?>
 				</div>
 
 			</div>
