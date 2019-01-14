@@ -1,1 +1,132 @@
 /*styles go here*/
+
+a   {
+   text-decoration: none;
+   color: black;
+}
+a:active {
+   color: black;
+}
+
+
+/* Gridding for Page */
+.main   {
+   display: grid;
+   float: right;
+   grid-template: repeat(15, [row] minimax(120px, 1fr)) / repeat(15, [col] 1fr);
+   grid-gap: 10px;
+   width: 100%;
+   height: 100%;
+}
+.main_container {
+   grid-column: col 2/ span 5;
+   grid-row: row 3/span 2;
+}
+.single_product {
+   width: 50%;
+   height: 20%;
+
+}
+.navbar {
+   grid-column: col 2/ span 4;
+   grid-row: row 2;
+}
+.sidebar{
+   grid-column: col 1/ span 1;
+   height: 95%;
+   width: 100%;
+   grid-row: row 3/ span 4;
+   text-align: center;
+}
+.logo   {
+   grid-column: col 1;
+   grid-row: row 1;
+}
+.search_form    {
+   grid-column: col 2;
+   grid-row: row ;
+}
+
+
+/* Main Styling */
+.brand_link {
+   margin: 40px 20px;
+   text-decoration: none;
+   border-style: solid;
+   border-width: 1px;
+   border-color: rgba(44, 146, 255, 0.543);
+   border-left-style: none;
+   border-right-style: none;
+   padding: 10px 30px;
+
+}
+.sidebar    {
+   font-family: "Palatino";
+   font-size: 17px;
+}
+.category_link  {
+   margin: 40px 20px;
+   border-style: solid;
+   border-width: 1px;
+   border-color: rgba(44, 146, 255, 0.543);
+   border-left-style: none;
+   border-right-style: none;
+   padding: 10px 30px;
+
+}
+.menu_link  {
+   display: inline-block;
+   margin-left: 40px;
+   margin-right: 20px;
+   font-family: "Palatino";
+   font-size: 20px;
+   margin-bottom: 15px;
+   padding-bottom: 10px;
+   border-style: solid;
+   border-color:  rgba(44, 146, 255, 0.543);
+   border-width: 1px;
+   border-left-style: none;
+   border-top-style: none;
+   border-bottom-style: none;
+   padding-right: 30px;
+}
+.search_form    {
+   margin: 50px 400px;
+}
+.single_product {
+   height: 40%;
+   width: 40%;
+   margin: 20px 20px;
+   background-color: rgba(44, 146, 255, 0.543);
+}
+.product_container  {
+   height: 70%;
+   grid-gap: 10px;
+   display: flex;
+   flex-wrap: wrap;
+}
+.item_det   {
+   display: grid;
+   grid-template: repeat(4, [row] minimax(120px, 1fr)) / repeat(5, [col] 1fr);
+}
+.item_com   {
+   grid-row: row 2;
+   grid-column: col 3/span 2;
+}
+.add_cart   {
+   grid-column: col 4;
+   grid-row: row 4;
+}
+.item_cost  {
+   grid-column: col 2;
+   grid-row: row 4;
+   margin: 0;
+}
+img     {
+   margin-left: auto;
+   margin-right: auto;
+}
+.space  {
+   grid-row: row 1;
+   grid-column: col 1/ span 5;
+}
