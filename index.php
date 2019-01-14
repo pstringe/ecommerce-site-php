@@ -9,11 +9,19 @@
 		<title>
 			Test Shop
 		</title>
-		<link rel="stylesheet" type="text/css" href="styles/style.css" media="all"/>
+		<link rel="stylesheet" type="text/css" href="./styles/style.css" media="all"/>
 	</head>
 	<body>
-		<div class="main">
+		<div class="main" style="background-color: rgba(244, 244, 244, 0.982)">
+			<div class="logo">
+			</div>	
 			<div class="header">
+			</div>
+			<div id="search_form">
+				<form method="get" action="results.php" enctype="multipart/form-data">
+					<input type="text" name="user_query" placeholder="Search"/>
+					<input type="submit" name="search" value="Search" />
+				</form>
 			</div>
 			<div class="navbar">
 				<div class="menu">
@@ -24,31 +32,22 @@
 					<div class="menu_link"><a href="cart.php">Cart</a></div>
 					<div class="menu_link"><a href="#">Contact</a></div>
 				</div>
-				<!--
-				<div id="search_form">
-					<form method="get" action="results.php" enctype="multipart/form-data">
-						<input type="text" name="user_query" placeholder="Search"/>
-						<input type="submit" name="search" value="Search" />
-					</form>
-				</div>
-				-->
 			</div>
 			<div class="sidebar">
 				<div class="sidebar_heading">
 					Brands
 				</div>
-				<div id="Brands">
+				<div class="Brands">
 					<?php getBrands(); ?>
 				</div>
 				<div class="sidebar_heading">
 					Categories
 				</div>
-				<div id="Categories">
-					
+				<div class="Categories">
 					<?php getCategories(); ?>
 				</div>
 			</div>
-			<div class="main content">
+			<div class="main_container">
 				<?php
 					cart();
 				?>
@@ -58,10 +57,9 @@
 					<div>Total Price: <?php getTotalCartPrice(); ?></div>
 					<div><a href="cart.php">Go To Cart</a></div>
 				</div>
-
 				<?php getIP(); ?>
 
-				<div id="product container">
+				<div class="product_container">
 					<?php getProducts(); ?>
 					<?php getProductsByCategory(); ?>
 					<?php getProductsByBrand(); ?>

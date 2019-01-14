@@ -83,11 +83,12 @@
 
 				echo "
 					<div class='single_product'>
-						<h3>$prod_title</h3>
 						<img src='admin_area/product_images/$prod_image'>	
-						<h2>$prod_price</h2>
-						<a href='details.php?pro_id=$prod_id' style='float:left;'>Details</a>
-						<a href='index.php?add_cart=$prod_id'><button>Add to Cart</button></a>
+						<div class='item_det'>
+							<h2>$prod_price</h2>
+							<a href='details.php?pro_id=$prod_id' style='float:left;'>Details</a>
+							<a href='index.php?add_cart=$prod_id'><button>Add to Cart</button></a>
+						</div>
 					</div>
 					";
 				}
@@ -274,7 +275,7 @@
 				$total += $r['prod_price'];
 				
 				echo ("
-						<div class='cart-item'>
+						<div class='cart-item' style='background-color: #FFB84D;'>
 							<input type='checkbox' name='remove[]' value='$prod_id'>Product Title: $title <img src='admin_area/product_images/$img'>Product Price: $price <input type='text' name='qty'/>
 						</div>
 					");
